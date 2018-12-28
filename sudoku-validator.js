@@ -1,4 +1,12 @@
-function validateSudoku(sudoku) {
+function validateSudoku(matrix) {
+    const sudoku = [];
+    for(let sudokuRow of matrix){
+        sudoku.push([
+            [sudokuRow[0],sudokuRow[1],sudokuRow[2]],
+            [sudokuRow[3],sudokuRow[4],sudokuRow[5]],
+            [sudokuRow[6],sudokuRow[7],sudokuRow[8]]
+        ]);
+    }
     let result = false;
     const uniques = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const sectors = [
