@@ -40,9 +40,6 @@ function validateSudoku(sudoku) {
         if (columns.every(column => column.length === 9) &&
             grids.every(grid => grid.length === 9)) {
             try {
-                let rowCheck = false;
-                let columnCheck = false;
-                let gridCheck = false;
                 for (let toCompare of rows) {
                     for (let iii = 0; iii < 9; iii++) {
                         let sorted = toCompare.sort();
