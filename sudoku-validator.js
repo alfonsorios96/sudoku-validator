@@ -1,10 +1,10 @@
-function validateSudoku(matrix) {
+const validateSudoku = matrix => {
     const sudoku = [];
-    for(let sudokuRow of matrix){
+    for (const sudokuRow of matrix) {
         sudoku.push([
-            [sudokuRow[0],sudokuRow[1],sudokuRow[2]],
-            [sudokuRow[3],sudokuRow[4],sudokuRow[5]],
-            [sudokuRow[6],sudokuRow[7],sudokuRow[8]]
+            [sudokuRow[0], sudokuRow[1], sudokuRow[2]],
+            [sudokuRow[3], sudokuRow[4], sudokuRow[5]],
+            [sudokuRow[6], sudokuRow[7], sudokuRow[8]]
         ]);
     }
     let result = false;
@@ -23,22 +23,22 @@ function validateSudoku(matrix) {
     let rows = [];
     let columns = [];
     let grids = [];
-    for (let row of sudoku) {
+    for (const row of sudoku) {
         let newRow = new Set([...row[0], ...row[1], ...row[2]]);
         rows.push([...newRow]);
     }
     if (rows.every(row => row.length === 9)) {
         for (let i = 0; i < 9; i++) {
             let newColumn = [];
-            for (let row of rows) {
+            for (const row of rows) {
                 newColumn.push(row[i]);
             }
-            let columnSet = new Set([...newColumn]);
+            const columnSet = new Set([...newColumn]);
             columns.push([...columnSet]);
         }
-        for (let sector of sectors) {
+        for (const sector of sectors) {
             let grid = [];
-            for (let row of sector) {
+            for (const row of sector) {
                 grid.push(sudoku[row[1]][row[0]]);
             }
             let fullGrid = new Set([...grid[0], ...grid[1], ...grid[2]]);
@@ -83,4 +83,4 @@ function validateSudoku(matrix) {
         result = false;
     }
     return result;
-}
+};
